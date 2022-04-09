@@ -1,0 +1,16 @@
+Recent case study on HTTPS traffic interception. Breaking through traffic integrity by installing root certificate for windows machine. 
+
+Once the root certificate is installed, cyber criminals perform MINM attack. Here is the following steps of interfiering the traffic from your local machine:
+
+1. Localhost (client) sends the request to the server. Malicious certificate performs the HTTPS connection on behalf of the client (your machine).
+2. After the connection is established, server sends back the data which will be recieved by malicious root certificate. Since the request was made on behalf of malicious
+root cert, all data transmitted back to the infected machine is decrypted prior "reaching your browser window".
+3. After fake certfificate was created, it impersonates the server certificate (created by malicious root CA)
+4. Client establishes the TLS connection with the malicious certificate and sends the data to the client ( your browser )
+
+What we have as the result:
+All data sent back and forth is not encrypted, however the HTTPS lock appears and browser doesn't send the warning.
+What it means for the user? Hacker receives all your data, wheter it's you banking details or any other >>confidential information<<.
+
+How to prevent:
+Cybersecurity is important aspect of our daily life, pay attention to >>installed software<< or any >>new software or connections<< which ask to install certificates.
